@@ -1,7 +1,7 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="theme-color" content="#ededed"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="聊天"><meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-32.png"><link rel="apple-touch-icon" href="icons/icon-180.png"><title>聊天</title>
+<link rel="manifest" href="./manifest.webmanifest?v=6"><link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-32.png?v=6"><link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png?v=6"><link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png?v=6"><title>聊天</title>
 <style>
 :root{--bg:#ededed;--bar:#f7f7f7;--ln:#dcdcdc;--ink:#191919;--sub:#8a8a8a;--ta:#fff;--me:#b9e3ab;--send:#7fc88a;--card:#fff;--red:#e5484d}
 @media(prefers-color-scheme:dark){:root{--bg:#111;--bar:#1b1b1b;--ln:#2e2e2e;--ink:#e6e6e6;--sub:#8c8c8c;--ta:#2b2b2b;--me:#4a7a47;--send:#4f9a5a;--card:#1e1e1e}}
@@ -21,7 +21,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0}
 .col{display:flex;flex-direction:column;gap:4px;max-width:68%}.me .col{align-items:flex-end}.ta .col{align-items:flex-start}.col .bb{max-width:100%}
 .qt{font-size:12.5px;color:var(--sub);background:rgba(120,120,128,.15);border-radius:5px;padding:5px 8px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #qbar{flex:none;display:none;align-items:center;gap:10px;padding:7px 8px 7px 14px;background:var(--bar);border-top:.5px solid var(--ln);font-size:13px}#qbar.on{display:flex}#qbar div{flex:1;min-width:0}#qbar b{display:block;font-weight:600;opacity:.7}#qbar span{display:block;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#qbar button{font-size:22px;padding:2px 10px;opacity:.6}
-.xf{position:relative;width:242px;max-width:calc(100vw - 104px);border-radius:5px;background:#ffcf9f;color:#fff;overflow:visible}.r:not(.me) .xf:before{content:'';position:absolute;left:-7px;top:18px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:8px solid #ffcf9f}.r.me .xf:before{content:'';position:absolute;right:-7px;top:18px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:8px solid #ffcf9f}.xf.done{background:#ffcf9f}.xt{display:flex;gap:10px;align-items:center;padding:12px 10px 9px}.xi{flex:none;width:44px;height:44px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:25px}.xf b{display:block;font-size:18px;font-weight:500;line-height:1.35}.xf small{font-size:16px;opacity:1;display:block;line-height:1.35}.xb{background:transparent;color:#fff;font-size:12px;padding:0 10px 10px}
+.xf{position:relative;width:242px;max-width:calc(100vw - 104px);border-radius:5px;background:#ffcf9f;color:#fff;overflow:visible}.r:not(.me) .xf:before{content:'';position:absolute;left:-7px;top:18px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:8px solid #ffcf9f}.r.me .xf:before{content:'';position:absolute;right:-7px;top:18px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:8px solid #ffcf9f}.xf.done{background:#ffcf9f}.xt{display:flex;gap:10px;align-items:center;padding:12px 10px 9px}.xi{flex:none;width:44px;height:44px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:25px}.xi svg{display:block;width:32px;height:32px;stroke:#fff!important;fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}.xi.checked svg{display:none}.xi.checked:after{content:'';display:block;width:20px;height:11px;border-left:4px solid #fff;border-bottom:4px solid #fff;transform:rotate(-45deg);margin-top:-5px}.xf b{display:block;font-size:18px;font-weight:500;line-height:1.35}.xf small{font-size:16px;opacity:1;display:block;line-height:1.35}.xb{background:transparent;color:#fff;font-size:12px;padding:0 10px 10px}
 #mm{position:fixed;inset:0;z-index:92;display:none}#mm.on{display:block}
 #mmc{position:absolute;display:flex;padding:7px 4px;border-radius:14px;background:var(--ink);color:var(--bg);box-shadow:0 8px 28px rgba(0,0,0,.28);animation:mmin .14s ease-out}
 @keyframes mmin{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
@@ -66,8 +66,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0}
 <div id="list"></div>
 <div id="qbar"><div><b></b><span></span></div><button id="qx" aria-label="取消引用">×</button></div>
 <div class="bar" id="bar">
-<textarea id="ta" rows="1" aria-label="输入消息"></textarea>
 <button class="ib" id="emo" aria-label="表情包"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><circle cx="10" cy="12" r=".8" fill="currentColor"/><circle cx="18" cy="12" r=".8" fill="currentColor"/><path d="M9 17c1.2 2.4 3 3.4 5 3.4s3.8-1 5-3.4"/></svg></button>
+<textarea id="ta" rows="1" aria-label="输入消息"></textarea>
 <button class="ib" id="plus" aria-label="更多"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 8.5v11M8.5 14h11"/></svg></button>
 <button id="send">发送</button></div>
 <div class="pn" id="pe"></div>
@@ -82,7 +82,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0}
 <script>
 const $=id=>document.getElementById(id),h=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const EMO=/^\p{Extended_Pictographic}[\p{Extended_Pictographic}\uFE0F\u200D]*$/u,rnd=(a,b)=>a+Math.random()*(b-a),sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const idb=()=>new Promise((r,j)=>{const q=indexedDB.open('wc',1);q.onupgradeneeded=()=>q.result.createObjectStore('k');q.onsuccess=()=>r(q.result);q.onerror=j});
+const idb=()=>new Promise((r,j)=>{const q=indexedDB.open('wc-public-reset-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('k');q.onsuccess=()=>r(q.result);q.onerror=j});
 const dbGet=async()=>{try{const d=await idb();return await new Promise(r=>{const q=d.transaction('k').objectStore('k').get('D');q.onsuccess=()=>r(q.result);q.onerror=()=>r()})}catch(e){}};
 const dbSet=async v=>{try{const d=await idb();d.transaction('k','readwrite').objectStore('k').put(v,'D')}catch(e){}};
 const SEED=['在吗','嗯嗯','哈哈哈','好呀','等我一下','你吃饭了吗','在忙呢，晚点说','😂','我也是','真的假的'];
@@ -99,11 +99,11 @@ function ago(t){const d=new Date(t),p=n=>String(n).padStart(2,'0'),hm=p(d.getHou
 function av(src,name,c){const e=h('div','av '+(c||''));if(src)e.style.backgroundImage='url("'+src+'")';else e.textContent=(name||'?')[0];return e}
 const ttl=()=>{$('ttl').textContent=typing?'对方正在输入…':D.S.name};
 const briefOf=m=>({stk:'[表情包]',img:'[图片]',pay:'[转账]'}[m.type]||String(m.x||'').slice(0,60));
-const xs=d=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>',XA=xs('<path d="M5 9h13l-3-3M19 15H6l3 3"/>'),XC=xs('<path d="m6 12.5 4 4 8-9"/>'),XB=xs('<path d="M9 5 4 10l5 5M4 10h10a5 5 0 0 1 0 10h-3"/>');
+const xs=d=>'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>',XA=xs('<path d="M5 9h13l-3-3M19 15H6l3 3"/>'),XC=xs('<path d="m6 12.5 4 4 8-9"/>'),XB=xs('<path d="M9 5 4 10l5 5M4 10h10a5 5 0 0 1 0 10h-3"/>');
 const fmtT=t=>{const d=new Date(t),q=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+q(d.getMonth()+1)+'-'+q(d.getDate())+' '+q(d.getHours())+':'+q(d.getMinutes())+':'+q(d.getSeconds())};
 const xtxt=m=>{const p=m.pay,me=m.w==='m';return p.st==='wait'?(p.note||(me?'你发起了一笔转账':'请收款')):p.st==='ok'?(me?'已被接收':'已收款'):(me?'已被退还':'已退还')};
-function xfCard(m){const p=m.pay,c=h('div','xf'+(p.st==='wait'?'':' done')),t=h('div','xt'),i=h('div','xi'),d=h('div');i.innerHTML=p.st==='ok'?XC:p.st==='back'?XB:XA;d.append(h('b','','¥'+p.amt.toFixed(2)),h('small','',xtxt(m)));t.append(i,d);c.append(t,h('div','xb','转账'));c.onclick=()=>openXd(m);return c}
-function openXd(m){const p=m.pay,me=m.w==='m',B=$('bXd');B.innerHTML='';const w=h('div','xd'),ic=h('div','xdi'+(p.st==='wait'?'':' done')),nm=D.S.name;ic.innerHTML=p.st==='ok'?XC:p.st==='back'?XB:XA;
+function xfCard(m){const p=m.pay,c=h('div','xf'+(p.st==='wait'?'':' done')),t=h('div','xt'),i=h('div','xi'),d=h('div');if(p.st==='ok')i.classList.add('checked');else i.innerHTML=p.st==='back'?XB:XA;d.append(h('b','','¥'+p.amt.toFixed(2)),h('small','',xtxt(m)));t.append(i,d);c.append(t,h('div','xb','转账'));c.onclick=()=>openXd(m);return c}
+function openXd(m){const p=m.pay,me=m.w==='m',B=$('bXd');B.innerHTML='';const w=h('div','xd'),ic=h('div','xdi'+(p.st==='wait'?'':' done')),nm=D.S.name;if(p.st==='ok')ic.innerHTML=XC;else ic.innerHTML=p.st==='back'?XB:XA;
   const ti=p.st==='wait'?(me?'待'+nm+'确认收款':nm+' 向你转账'):p.st==='ok'?(me?nm+'已收款':'已收款'):(me?nm+'已退还':'已退还');
   w.append(ic,h('div','xdt',ti),h('div','xda','¥'+p.amt.toFixed(2)));
   const l=h('div','xdl'),row=(k,v)=>{const r=h('div');r.append(h('span','',k),h('span','',v));l.append(r)};row('转账时间',fmtT(m.t));if(p.note)row('转账说明',p.note);if(p.t1&&p.st!=='wait')row(p.st==='ok'?'收款时间':'退还时间',fmtT(p.t1));w.append(l);
@@ -146,10 +146,10 @@ const pool=ty=>D.cards.filter(c=>c.enabled&&ty.includes(c.type)&&(D.groups.find(
 function pickCards(n){const used=new Set(),T=pool(['text','emoji']),I=pool(['image']),out=[],take=a=>{const f=a.filter(c=>!used.has(c.id));if(!f.length)return null;const c=f[Math.random()*f.length|0];used.add(c.id);return c};
   for(let i=0;i<n;i++){let c=Math.random()*100<D.cfg.stickerProb?take(I):null;if(!c)c=take(T)||take(I);if(!c)break;out.push(c)}return out}
 function reply(force=false){
-  if(!D.cfg.auto&&!force)return;clearTimeout(rt);const my=++gen;typing=false;ttl();
-  rt=setTimeout(async()=>{const C=D.cfg,n=Math.round(rnd(C.cardMin,Math.max(C.cardMin,C.cardMax))),cs=pickCards(n);if(!cs.length){toast('字卡库里没有可用字卡');return}
-    let k=0;for(const c of cs){typing=true;ttl();await sleep(rnd(600,1200)+(c.type==='image'?0:c.content.length*50));if(my!==gen)return;typing=false;let q=null;if(k++===0&&c.type!=='image'&&Math.random()*100<(C.quoteProb||0)){const lm=[...D.msgs].reverse().find(x=>x.w==='m'&&['txt','stk','img'].includes(x.type));if(lm)q=[D.S.myName,briefOf(lm)]}push('t',c.type==='image'?'stk':'txt',c.content,q);await sleep(rnd(250,600));if(my!==gen)return}
-    if(C.xferOn!==false&&Math.random()*100<C.transferProb&&!D.msgs.some(x=>x.type==='pay'&&x.w==='t'&&x.pay.st==='wait')){const lo=Math.min(C.xferMin,C.xferMax),hi=Math.max(C.xferMin,C.xferMax);push('t','pay',null,null,{amt:Math.round(rnd(lo,hi)),note:'',st:'wait'})}
+  if(!D.cfg.auto&&!force)return;clearTimeout(rt);const my=++gen;typing=true;ttl();
+  rt=setTimeout(async()=>{const C=D.cfg,n=Math.round(rnd(C.cardMin,Math.max(C.cardMin,C.cardMax))),cs=pickCards(n);if(!cs.length){typing=false;ttl();return}
+    let k=0;for(const c of cs){typing=true;ttl();await sleep(rnd(600,1200)+(c.type==='image'?0:c.content.length*50));if(my!==gen)return;typing=false;let q=null;if(k++===0&&c.type!=='image'&&Math.random()*100<(C.quoteProb||0)){const lm=[...D.msgs].reverse().find(x=>x.w==='m'&&['txt','stk','img'].includes(x.type));if(lm)q=[D.S.myName,briefOf(lm)]}push('t',c.type==='image'?'stk':'txt',c.content,q);if(k<cs.length){typing=true;ttl()}await sleep(rnd(250,600));if(my!==gen)return}
+    typing=false;ttl();if(C.xferOn!==false&&Math.random()*100<C.transferProb&&!D.msgs.some(x=>x.type==='pay'&&x.w==='t'&&x.pay.st==='wait')){const lo=Math.min(C.xferMin,C.xferMax),hi=Math.max(C.xferMin,C.xferMax);push('t','pay',null,null,{amt:Math.round(rnd(lo,hi)),note:'',st:'wait'})}
     ttl()},rnd(D.cfg.minDelay,Math.max(D.cfg.minDelay,D.cfg.maxDelay))*1000)}
 let QT=null;
 function setQuote(q){QT=q;const b=$('qbar');b.classList.toggle('on',!!q);if(q){b.querySelector('b').textContent=q[0];b.querySelector('span').textContent=q[1];ta.focus()}}
@@ -158,7 +158,7 @@ const sendU=(type,x,q,pay)=>{if(type!=='pay'&&QT&&!q){q=QT;setQuote(null)}const 
 const ta=$('ta');
 function panel(id){const on=id&&!$(id).classList.contains('on');['pe','pp'].forEach(p=>$(p).classList.remove('on'));$('bar').classList.toggle('pnon',!!on);if(on){if(id==='pe')drawStk();if(id==='pp')$('pXf').style.display=D.cfg.xferOn===false?'none':'';$(id).classList.add('on');ta.blur()}setTimeout(()=>{$('list').scrollTop=$('list').scrollHeight},50)}
 function fit(){ta.style.height='auto';ta.style.height=Math.min(ta.scrollHeight,110)+'px';const has=ta.value.trim()!=='';$('send').style.display='block';$('plus').style.display=has?'none':'flex'}
-function sendText(){const v=ta.value.trim();if(!v){reply(true);toast('已让对方主动发送');return}ta.value='';fit();sendU('txt',v);ta.focus()}
+function sendText(){const v=ta.value.trim();if(!v){reply(true);return}ta.value='';fit();sendU('txt',v);ta.focus()}
 ta.oninput=fit;ta.onfocus=()=>panel(null);$('send').onclick=sendText;
 ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();sendText()}};
 $('emo').onclick=()=>panel('pe');$('plus').onclick=()=>panel('pp');
